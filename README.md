@@ -32,6 +32,12 @@ $info = array(
     'sitelink' => trim(strip_tags($html->find('div.repository-website', 0)->innertext))
 );
 ````
+For sites that require a valid user agent, once can be passed like this:
+
+````
+$context = stream_context_create(array('http' => array('header' => 'User-Agent: Mozilla compatible')));
+$html = SimpleHtmlDom::file_get_html('http://www.domain.com', false, $context);
+````
 
 Find more examples at http://simplehtmldom.sourceforge.net the important part is to call SimpleHtmlDom::file_get_html('url')
 
